@@ -8,9 +8,9 @@ import os
 app = FastAPI()
 app.include_router(user_router)
 #to create database
-if not os.path.exists("./test.db"):
-    engine=create_engine(DATABASE_URL)
-    Base.metadata.create_all(engine)
+
+engine=create_engine(DATABASE_URL)
+Base.metadata.create_all(engine)
 
 @app.get("/")
 def read_root():
