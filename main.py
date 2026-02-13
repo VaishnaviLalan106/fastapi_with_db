@@ -3,15 +3,31 @@ from routes.user_routes import router as user_router
 from routes.ai_response_routes import router as ai_response_router
 from db import engine
 from routes.email_routes import router as email_router
+from routes.chat_routes import router as chat_router
 from models import Base
 import os
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "http://localhost:5174",
+        "http://127.0.0.1:5174",
+        "http://localhost:5175",
+        "http://127.0.0.1:5175",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 app.include_router(user_router)
 app.include_router(ai_response_router)
 app.include_router(email_router)
+app.include_router(chat_router)
 #to create database
-
 Base.metadata.create_all(bind=engine)
 
 @app.get("/")
