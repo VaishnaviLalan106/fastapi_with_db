@@ -14,7 +14,7 @@ if "chat_history" in tables:
 else:
     print("chat_history table MISSING!")
 
-if "messages" in tables:
-    print("messages table exists.")
+if "chat_messages" in tables:
+    print("chat_messages table exists.")
 else:
-    print("messages table MISSING!")
+    print("chat_messages table MISSING!")

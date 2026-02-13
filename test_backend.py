@@ -9,6 +9,17 @@ PASSWORD = "password123"
 def run_test():
     session = requests.Session()
     
+    # 0. Test OPTIONS (Preflight)
+    print("0. Testing OPTIONS /chats/ (Preflight mimicking)...")
+    options_headers = {
+        "Origin": "http://localhost:5174",
+        "Access-Control-Request-Method": "GET",
+        "Access-Control-Request-Headers": "authorization"
+    }
+    options_resp = requests.options(f"{BASE_URL}/chats/", headers=options_headers)
+    print(f"OPTIONS Response Status: {options_resp.status_code}")
+    print(f"OPTIONS Response Headers: {json.dumps(dict(options_resp.headers), indent=2)}")
+    
     # 1. Signup/Login
     print(f"1. Authenticating as {EMAIL}...")
     try:
