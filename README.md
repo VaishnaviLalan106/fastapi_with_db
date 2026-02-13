@@ -53,3 +53,17 @@ Create a .env file if using environment config (optional):
 DATABASE_URL=sqlite:///test.db
 GITHUB_TOKEN=your_github_token
 
+---
+
+
+## 👩‍💻 Author
+
+Developed by **Vaishnavi L**, 3rd Year Computer Science student, as part of a full-stack AI-powered chat application with authentication and database integration.
+
+---
+## 📜 License
+
+This project is licensed under the MIT License — you are free to use, modify, and distribute this software with proper attribution.
+
+---
+
