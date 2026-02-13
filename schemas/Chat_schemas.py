@@ -14,7 +14,7 @@ class MessageResponse(MessageBase):
     created_at: datetime
     
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class ChatBase(BaseModel):
     title: str
@@ -25,10 +25,10 @@ class ChatCreate(ChatBase):
 class ChatResponse(ChatBase):
     id: int
     created_at: datetime
-    updated_at: datetime
+    updated_at: Optional[datetime] = None
     
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class ChatWithMessages(ChatResponse):
     messages: List[MessageResponse] = Field(default_factory=list)
